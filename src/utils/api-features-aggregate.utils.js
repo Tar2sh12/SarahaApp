@@ -80,6 +80,12 @@ export class ApiAggregateFeature {
               if (isValid) {
                 obj[key][op] = new mongoose.Types.ObjectId(val);
               }
+              else if(!isNaN(val)){
+                obj[key][op] = parseFloat(val);
+              }
+              else{
+                obj[key]=val;
+              }
             }
           }
           // Recurse for nested objects
@@ -90,7 +96,7 @@ export class ApiAggregateFeature {
 
     addRegexOptions(parsedFilters);
     this.filterObject = parsedFilters;
-
+    
     this.pipeline.push({
       $match: this.filterObject,
     });
@@ -125,13 +131,13 @@ export class ApiAggregateFeature {
       });
     }
 
+    
     // for deselecting or selecting fields
     if (this.select) {
       this.pipeline.push({
         $project: this.select,
       });
     }
-
     this.mongooseQuery = this.model.aggregate(this.pipeline);
 
     return this;

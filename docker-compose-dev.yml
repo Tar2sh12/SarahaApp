@@ -1,0 +1,15 @@
+version: '2.29.2'
+services:
+  saraha-app:
+    build: 
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+      - ./DB:/app/DB:ro
+      - ./index.js:/app/index.js:ro
+      - ./initiate-app.js:/app/initiate-app.js:ro
+      - ./router-handler.js:/app/router-handler.js:ro
+    env_file:
+      - ./.env
+    

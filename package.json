@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "start:dev": "nodemon index.js"
+    "start": "node /src/index.js",
+    "start:dev": "nodemon --watch src --legacy-watch /src/index.js",
+    "start:prod": "node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -30,9 +31,11 @@
     "nanoid": "^5.0.7",
     "node-schedule": "^2.1.1",
     "nodemailer": "^7.0.3",
-    "nodemon": "^3.1.0",
     "otp-generator": "^4.0.1",
     "socket.io": "^4.7.5",
     "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

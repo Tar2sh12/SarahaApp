@@ -1,0 +1,10 @@
+#for commonn things in all the docker-compose files
+version: '2.29.2'
+services:
+  saraha-app:
+    container_name: saraha-app
+    ports:
+      - "4000:5155"
+  mongo-db:
+    image: mongo
+    restart: always
