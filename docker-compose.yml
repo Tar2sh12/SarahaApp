@@ -4,7 +4,7 @@ services:
   saraha-app:
     container_name: saraha-app
     ports:
-      - "4000:5155"
+      - "4000:5155" # map port 4000 of the host to 5155 of the container
   mongo-db:
     image: mongo
     restart: always

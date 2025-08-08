@@ -12,7 +12,7 @@ export const routerHandler = (app)=>{
     app.use("/auth", routers.AuthRouter);
     app.use("/messages", routers.MessageRouter);
     app.use("*", (req, res) => {
-      res.status(404).json({ msg: "Not found", status: 404 });
+      res.status(404).json({ msg: "Not found skdjdskj", status: 404 });
     });
     app.use(globaleResponse);
 }

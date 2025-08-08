@@ -3,6 +3,6 @@ services:
   saraha-app:
     build: 
       context: .
-      target: production
+      target: production #production stage
     env_file:
       - ./.env

@@ -1,9 +1,9 @@
 version: '2.29.2'
 services:
   saraha-app:
-    build: 
+    build: #build the image from Dockerfile in the current directory
       context: .
-      target: development
+      target: development #development stage
     volumes:
       - ./src:/app/src:ro
       - ./DB:/app/DB:ro
