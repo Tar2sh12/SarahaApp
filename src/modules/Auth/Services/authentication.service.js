@@ -60,7 +60,14 @@ export const SignUp = async (req, res, next) => {
   });
 
   await userInstance.save();
-  return successResponse(res, userInstance, "user created ", 201);
+  //remove protected fields
+  const userObj = userInstance.toObject();
+  delete userObj.password;
+  delete userObj.isMarkedAsDeleted;
+  delete userObj.createdAt;
+  delete userObj.updatedAt;
+  delete userObj.__v;
+  return successResponse(res, userObj, "user created ", 201);
 };
 
 export const verifyEmail = async (req, res, next) => {
