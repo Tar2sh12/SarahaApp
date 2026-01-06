@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SarahaApp - Anonymous Messaging Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+            animation: fadeInDown 1s ease;
+        }
+
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 1s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .tech-stack h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .api-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .api-endpoint {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 15px;
+            word-break: break-all;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .buttons-container {
+            margin-top: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em;
+            }
+
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">💬 SarahaApp</div>
+            <div class="tagline">Your Voice, Your Privacy</div>
+        </header>
+
+        <section class="hero">
+            <h1>Anonymous Messaging Made Simple</h1>
+            <p>Share your thoughts freely, receive honest feedback, and connect with others while maintaining complete anonymity. Built with modern technology for a seamless experience.</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <span class="icon">🔒</span>
+                <h3>Secure & Anonymous</h3>
+                <p>Send and receive messages without revealing your identity. Your privacy is our top priority with JWT-based authentication and encrypted communications.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">✉️</span>
+                <h3>Easy Messaging</h3>
+                <p>Simple API endpoints for sending messages, retrieving your inbox, and managing conversations with pagination support for better performance.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">👤</span>
+                <h3>User Management</h3>
+                <p>Complete user authentication system with email confirmation, password reset, refresh tokens, and profile management capabilities.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">⚡</span>
+                <h3>Real-time Updates</h3>
+                <p>Efficient backend with background jobs for token management and automated email notifications for important account activities.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">🛡️</span>
+                <h3>Admin Dashboard</h3>
+                <p>Comprehensive admin controls for user management, moderation, and platform oversight to maintain a safe community.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="icon">🚀</span>
+                <h3>RESTful API</h3>
+                <p>Clean, well-documented REST API built with Express.js, following best practices for scalability and maintainability.</p>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2>Built With Modern Technology</h2>
+            <div class="tech-grid">
+                <div class="tech-badge">Node.js</div>
+                <div class="tech-badge">Express</div>
+                <div class="tech-badge">MongoDB</div>
+                <div class="tech-badge">Mongoose</div>
+                <div class="tech-badge">JWT</div>
+                <div class="tech-badge">Nodemailer</div>
+                <div class="tech-badge">Joi Validation</div>
+                <div class="tech-badge">Luxon</div>
+                <div class="tech-badge">Node-Schedule</div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Get Started?</h2>
+            <p>Access our API and start building your anonymous messaging experience</p>
+            <div class="api-info">
+                <p><strong>API Base URL:</strong></p>
+                <div class="api-endpoint">https://sarahaapp.tech</div>
+                <p style="margin-top: 20px; font-size: 0.9em;">
+                    Explore our authentication, messaging, and user management endpoints to integrate SarahaApp into your application.
+                </p>
+                <div class="buttons-container">
+                    <a href="https://documenter.getpostman.com/view/39534313/2sAYJ3E2Qm" target="_blank" class="btn btn-primary">📚 API Documentation</a>
+                    <a href="https://github.com/Tar2sh12/SarahaApp/" target="_blank" class="btn">💻 View on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 SarahaApp. Empowering anonymous communication.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Built with ❤️ using Node.js & MongoDB</p>
+        </footer>
+    </div>
+</body>
+</html>
