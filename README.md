@@ -124,10 +124,6 @@ Important: Use strong secrets for `JWT_SECRET_KEY` and secure SMTP credentials f
 - For production email delivery, configure a reliable SMTP relay or transactional email provider (SendGrid, Mailgun) and avoid using plain Gmail with less secure settings.
 - Increase token entropy and set sensible expiration times for access and refresh tokens.
 
-**Testing**
-
-There are no automated tests in the repo currently (see `package.json` for scripts). Adding unit/integration tests is recommended for production readiness.
-
 **Deployment**
 
 - The repository contains Docker files and `docker-compose` variants (`docker-compose-dev.yml`, `docker-compose-prod.yml`, `Dockerfile`) which can be used to containerize the app for deployment.
