@@ -147,9 +147,3 @@ There are no automated tests in the repo currently (see `package.json` for scrip
 - Message services: `src/modules/Messages/services/message.service.js`
 - Middlewares: `src/middleware/` (authentication/authorization/validation/error handling)
 - Models: `DB/models/`
-
-If you'd like, I can also generate an OpenAPI (Swagger) spec from the controllers, add example requests, or prepare a CONTRIBUTING.md — tell me which you'd prefer next.
-
----
-Generated technical README (concise) by an automated assistant — please review and edit any human-facing copy or secret placeholders before publishing.
-
