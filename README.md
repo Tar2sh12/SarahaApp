@@ -117,25 +117,6 @@ Important: Use strong secrets for `JWT_SECRET_KEY` and secure SMTP credentials f
 - Email: `src/Services/send-email.service.js` uses `nodemailer` and an event emitter for sending emails (confirmation, password reset).
 - Cron: `src/utils/crons.utils.js` uses `node-schedule` to periodically remove expired blacklisted tokens (configured in `initiate-app.js`).
 
-**Security & Best Practices**
-
-- Store secrets (JWT keys, DB URI, SMTP creds) in environment variables or a secrets manager — do not commit to source control.
-- Use HTTPS in production, configure CORS appropriately, and set secure cookie flags if cookies are used.
-- For production email delivery, configure a reliable SMTP relay or transactional email provider (SendGrid, Mailgun) and avoid using plain Gmail with less secure settings.
-- Increase token entropy and set sensible expiration times for access and refresh tokens.
-
-**Deployment**
-
-- The repository contains Docker files and `docker-compose` variants (`docker-compose-dev.yml`, `docker-compose-prod.yml`, `Dockerfile`) which can be used to containerize the app for deployment.
-- Ensure environment variables are provided securely to the container orchestration platform (Kubernetes, Docker Cloud, or similar).
-
-**Contributing & Next Steps**
-
-- Add comprehensive tests and CI pipelines
-- Harden authentication flows (refresh token rotation, revoke lists)
-- Add rate limiting to public endpoints (to mitigate abuse)
-- Add request logging and structured monitoring for production
-
 **Where to look in the code**
 
 - Authentication services: `src/modules/Auth/Services/authentication.service.js`
