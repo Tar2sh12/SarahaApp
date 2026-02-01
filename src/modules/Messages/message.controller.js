@@ -1,4 +1,4 @@
-import * as controller from "./Services/message.service.js";
+import * as controller from "./services/message.service.js";
 // middlewares
 import * as Middlewares from "../../middleware/index.js";
 import { Router } from "express";
