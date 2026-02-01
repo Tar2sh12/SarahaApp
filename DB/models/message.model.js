@@ -3,10 +3,7 @@ const { Schema, model } = mongoose;
 const messageSchema = new Schema(
   {
     orderId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-      required: true,
-      index: true, // useful for querying messages by order
+      type: String
     },
 
     senderId: {
