@@ -10,3 +10,4 @@ export * from "./email-template.utils.js";
 export * from "./crons.utils.js"
 export * from "./tokens.utils.js"
 export * from "./api-features-aggregate.utils.js"
+export * from "./socketio.utils.js"
